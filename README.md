@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Delivery Tugas Rekrutmen React Front End Developer MAPID
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Logo](https://mapid.co.id/img/mapid_logo_warna-min.png)
 
-## Available Scripts
+Tugas ini adalah sebagai syarat seleksi pertama untuk proses rekrutmen React Front End Developer MAPID.
 
-In the project directory, you can run:
+## Struktur Folder
 
-### `yarn start`
+- Buatlah react baru, pindahkan code yang diberikan berisi Stateless Components (Function Components) menjadi Statefull Components (Class Components) pada ReactJS. Beserta fitur-fiturnya.
+- Terdapat Error pada Popup di Stateless Components, Selesaikkan Error itu di Statefull Components. Contoh seperti gambar disamping.
+- Nilai tambahan :
+  - Menambahkan fitur diluar task.
+  - Modifies styling (dibolehkan memakai library lain).
+  - Clear code.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Clone
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clone projek ini
 
-### `yarn test`
+```bash
+  git clone https://github.com/movinoary/Tugas-Rekrutmen-Mapid.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Masuk ke directory projek
 
-### `yarn build`
+```bash
+  cd Tugas-Rekrutmen-Mapid
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Instal package
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+  npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+jalankan react
 
-### `yarn eject`
+```bash
+  npm run dev
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Package Wajib
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Mapbox](https://www.mapbox.com/)
+- [react-map-gl](https://urbica.github.io/react-map-gl/#/Introduction)
+- [react-redux](https://react-redux.js.org/)
+- [redux-toolkit](https://redux.js.org/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## API DAN DATA
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Endpoint get methode API
 
-## Learn More
+```http
+  https://geoserver.mapid.io/layers_new/get_layer?api_key=689c2279e0834a3ba82743432605e746&layer_id=628f1d7c84b953e79a7cd896&project_id=611eafa6be8a2635e15c4afc
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Parameter  | Description                                |
+| :--------- | :----------------------------------------- |
+| `type`     | FeatureCollection                          |
+| `features` | Array geometri titik dengan format geojson |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Respon data dari API tersebut adalah JSON dengan beberapa atribut yang perlu diperhatikan. Pada atribut level pertama kamu hanya perlu memperhatikan atribut dengan key “geojson”.
 
-### Code Splitting
+| Parameter    | Description                                    |
+| :----------- | :--------------------------------------------- |
+| `type`       | FeatureCollection                              |
+| `geometry`   | coordinates: [longitude,latitude]              |
+| `properties` | { Nama: “Satu”, Status: “Kuning”, Angka: “10”} |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Pengiriman Tugas
 
-### Analyzing the Bundle Size
+Buatlah repositori github (atau platform repositori lainnya) berisi hasil tugas kemudian balas email ini dengan link repositori tersebut.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Jelaskan pada file readme
 
-### Making a Progressive Web App
+👉 Struktur file/folder hasil pengerjaan
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+👉 Cara penginstalan library, dan menjalanan aplikasi
 
-### Advanced Configuration
+👉 Fitur-fitur dasar sesuai rekrutmen, dan Fitur-fitur tambahan di luar rekrutmen (jika ada).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Struktur folder
 
-### Deployment
+👉 components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- layer ➡️ Components Titik
+- menu ➡️ Components Menu
+- popup ➡️ Components Popup (error)
 
-### `yarn build` fails to minify
+👉 configs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- DataApi ➡️ Kumpulan Data API
+- Store ➡️ Kumpulan Data Reducer
+- TokenStorage ➡️ Data Token (token diutamakan membuat sendiri)
+
+👉 scss ➡️ folder menyimpan styling

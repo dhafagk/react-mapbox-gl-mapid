@@ -2,10 +2,9 @@ import React from "react";
 import MapGL from "@urbica/react-map-gl";
 import { connect } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { Menu } from "../";
+import { Layer, Menu } from "../";
 import * as Configs from "../../configs";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { ColorPoint } from "../ui";
 
 const getApi = Configs.GetApi;
 const toggleTheme = Configs.toggleTheme;
@@ -29,7 +28,17 @@ class Map extends React.Component {
     return (
       <>
         {Datas?.map((data, index) => (
-          <ColorPoint key={index} data={data} color={color} />
+          <React.Fragment key={index}>
+            {color ? (
+              <>
+                {data.properties.Status === color ? (
+                  <Layer data={data} />
+                ) : null}
+              </>
+            ) : (
+              <Layer data={data} />
+            )}
+          </React.Fragment>
         ))}
       </>
     );
