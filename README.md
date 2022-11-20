@@ -15,7 +15,7 @@ Tugas ini adalah sebagai syarat seleksi pertama untuk proses rekrutmen React Fro
 │           └── index.jsx
 │       ├── ui			        # UI Component such as Button
 │           ├── index.jsx
-│           ├── SortButton.jsx	        # Button sortir
+│           ├── SortButtons.jsx	        # Button sortir
 │           ├── ToggleSortButton.jsx	# Button toggle sortir
 │           └── ToggleThemeButton.jsx	# Button toggle darkmode
 │       ├── index.jsx
