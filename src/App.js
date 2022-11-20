@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Helmet } from "react-helmet";
+import Map from "./components/Map";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.PureComponent {
+  render() {
+    return (
+      <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>dhafagk - MAPID</title>
+          <link rel="icon" type="image/x-icon" href="/favicon.png" />
+          <link rel="canonical" href="http://mysite.com/example" />
+        </Helmet>
+
+        <Map />
+      </>
+    );
+  }
 }
 
 export default App;
