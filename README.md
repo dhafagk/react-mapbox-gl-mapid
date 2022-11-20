@@ -6,91 +6,82 @@ Tugas ini adalah sebagai syarat seleksi pertama untuk proses rekrutmen React Fro
 
 ## Struktur Folder
 
-- Buatlah react baru, pindahkan code yang diberikan berisi Stateless Components (Function Components) menjadi Statefull Components (Class Components) pada ReactJS. Beserta fitur-fiturnya.
-- Terdapat Error pada Popup di Stateless Components, Selesaikkan Error itu di Statefull Components. Contoh seperti gambar disamping.
-- Nilai tambahan :
-  - Menambahkan fitur diluar task.
-  - Modifies styling (dibolehkan memakai library lain).
-  - Clear code.
+```bash
+├── public
+├── src
+│   ├── components			# Components folder
+│       ├── Map					# Map Component
+│           └── index.jsx
+│       ├── ui					# UI Component such as Button
+│			├── index.jsx
+│			├── SortButton.jsx			# Button sortir
+│			├── ToggleSortButton.jsx	# Button toggle sortir
+│           └── ToggleThemeButton.jsx	# Button toggle darkmode
+│		├── index.jsx
+│		├── Layer.jsx			# Component titik
+│		├── Popup.jsx			# Component popup
+│       └── Menu.jsx			# Component menu
+│   ├── configs				# Redux state, reducer, store, etc.
+│		├── index.jsx
+│		├── DataApi.js			# Kumpulan data Api
+│		├── TokenStorage.js		# Data Token (token sendiri)
+│		├── Theme.js			# Theme State (Persist)
+│		└── Store.js			# Kumpulan data Reducer
+│   ├── lib					# Library
+│		└── withRouter.js		# useNavigate hook
+│   ├── App.js
+│   ├── index.css
+│   └── index.js
+├── node_modules
+└── ...
+```
 
-## Clone
+## Setup
 
 Clone projek ini
 
 ```bash
-  git clone https://github.com/movinoary/Tugas-Rekrutmen-Mapid.git
+git clone https://github.com/dhafagk/react-mapbox-gl-mapid.git
 ```
 
 Masuk ke directory projek
 
 ```bash
-  cd Tugas-Rekrutmen-Mapid
+cd react-mapbox-gl-mapid
 ```
 
 Instal package
 
 ```bash
-  npm install
+yarn install
 ```
 
 jalankan react
 
 ```bash
-  npm run dev
+yarn start
 ```
 
-### Package Wajib
+### Package
 
 - [Mapbox](https://www.mapbox.com/)
 - [react-map-gl](https://urbica.github.io/react-map-gl/#/Introduction)
 - [react-redux](https://react-redux.js.org/)
 - [redux-toolkit](https://redux.js.org/)
+- [redux-persist](https://www.npmjs.com/package/redux-persist)
+- [react-helmet](https://www.npmjs.com/package/react-helmet)
+- [axios](https://axios-http.com/docs/intro)
+- [tailwind](https://tailwindcss.com/)
+- [heroicons](https://heroicons.com/)
 
-## API DAN DATA
+## Fitur
 
-#### Endpoint get methode API
+#### Basic
 
-```http
-  https://geoserver.mapid.io/layers_new/get_layer?api_key=689c2279e0834a3ba82743432605e746&layer_id=628f1d7c84b953e79a7cd896&project_id=611eafa6be8a2635e15c4afc
-```
+1.  Merubah seluruh kode dari Stateless Component (Function Component) menjadi Stateful Component (Class Component).
+2.  Fix error popup di Stateful Component
 
-| Parameter  | Description                                |
-| :--------- | :----------------------------------------- |
-| `type`     | FeatureCollection                          |
-| `features` | Array geometri titik dengan format geojson |
+#### Tambahan
 
-Respon data dari API tersebut adalah JSON dengan beberapa atribut yang perlu diperhatikan. Pada atribut level pertama kamu hanya perlu memperhatikan atribut dengan key “geojson”.
-
-| Parameter    | Description                                    |
-| :----------- | :--------------------------------------------- |
-| `type`       | FeatureCollection                              |
-| `geometry`   | coordinates: [longitude,latitude]              |
-| `properties` | { Nama: “Satu”, Status: “Kuning”, Angka: “10”} |
-
-## Pengiriman Tugas
-
-Buatlah repositori github (atau platform repositori lainnya) berisi hasil tugas kemudian balas email ini dengan link repositori tersebut.
-
-### Jelaskan pada file readme
-
-👉 Struktur file/folder hasil pengerjaan
-
-👉 Cara penginstalan library, dan menjalanan aplikasi
-
-👉 Fitur-fitur dasar sesuai rekrutmen, dan Fitur-fitur tambahan di luar rekrutmen (jika ada).
-
-## Struktur folder
-
-👉 components
-
-- layer ➡️ Components Titik
-- menu ➡️ Components Menu
-- popup ➡️ Components Popup (error)
-
-👉 configs
-
-- DataApi ➡️ Kumpulan Data API
-- Store ➡️ Kumpulan Data Reducer
-- TokenStorage ➡️ Data Token (token diutamakan membuat sendiri)
-
-👉 scss ➡️ folder menyimpan styling
+1.  NavigationControl untuk memudahkan dalam interaksi map dan GeolocateControl untuk mengarahkan titip map pada komputer kita.
+2.  Menyimpan state darkmode ke localStorage menggunakan redux-persist.
