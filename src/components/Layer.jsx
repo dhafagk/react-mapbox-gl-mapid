@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Source, Layer as Marker } from "@urbica/react-map-gl";
-import { Popup } from "./ui";
+import { Popup } from "./";
 
 export class Layer extends React.Component {
   constructor(props) {
